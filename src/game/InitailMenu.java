@@ -11,6 +11,7 @@ import java.awt.Image;
 
 public class InitailMenu extends JPanel implements KeyListener {
     private GameEngine gameEngine;
+    private int itemSelectedOnTheYAxis = 520;
 
     public InitailMenu(GameEngine gameEngine){
         this.gameEngine = gameEngine;
@@ -32,16 +33,8 @@ public class InitailMenu extends JPanel implements KeyListener {
         );
         add(endGameLabel);
 
-        JLabel selectMenuItem = new JLabel();
-        selectMenuItem.setIcon(gameEngine.getLoader().getSelectMenuItem());
-        selectMenuItem.setBounds(
-            gameEngine.getWidth()/3, 
-            gameEngine.getHeight()-selectMenuItem.getPreferredSize().height-90,
-            selectMenuItem.getPreferredSize().width, 
-            selectMenuItem.getPreferredSize().height
-        );
-
-        add(selectMenuItem);
+        gameEngine.getWindow().addKeyListener(this);
+        setFocusTraversalKeysEnabled(false);
         
     }
 
@@ -72,10 +65,33 @@ public class InitailMenu extends JPanel implements KeyListener {
         int y = (height - drawHeight) / 2;
 
         g.drawImage(backgroundImage,x,y,drawWidth,drawHeight,this);
+
+
+
+        g.drawImage(
+            gameEngine.getLoader().getSelectMenuItem().getImage(),
+            480,
+            itemSelectedOnTheYAxis,
+            null
+        );
     }
 
     @Override
-    public void keyPressed(KeyEvent k){}
+    public void keyPressed(KeyEvent k){
+        
+        int pressedKey = k.getKeyCode();
+        switch(pressedKey){
+            case KeyEvent.VK_UP:
+                itemSelectedOnTheYAxis = 520;
+                break;
+            case KeyEvent.VK_DOWN:
+                itemSelectedOnTheYAxis = 560;
+                break;
+            default:
+                break;
+        }
+        repaint();
+    }
 
     @Override
     public void keyTyped(KeyEvent k){}
