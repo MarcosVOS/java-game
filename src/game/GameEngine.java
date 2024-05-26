@@ -1,9 +1,6 @@
 package game;
 
-import java.awt.Color;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 import view.Loader;
 
@@ -23,9 +20,9 @@ public class GameEngine {
         window.setSize(WIDTH,HEIGHT);
         window.setLocationRelativeTo(null);
         window.setResizable(false);
-        window.setBackground(Color.BLACK);
         
         InitailMenu mainMenu = new InitailMenu(this);
+        window.setContentPane(mainMenu);
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
