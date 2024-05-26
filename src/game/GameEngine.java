@@ -35,7 +35,7 @@ public class GameEngine {
         return this.WIDTH;
     } 
 
-    public int getHeigth(){
+    public int getHeight(){
         return this.HEIGHT;
     }
     

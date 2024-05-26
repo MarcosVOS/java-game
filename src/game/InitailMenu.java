@@ -28,7 +28,7 @@ public class InitailMenu extends JPanel {
         JLabel startGameLabel = createLabel(
             "Começar",
             gameEngine.getWidth(),
-            gameEngine.getHeigth(),
+            gameEngine.getHeight(),
             backgroundLabel.getIcon().getIconHeight()
         );
         gameEngine.getWindow().add(startGameLabel);
@@ -36,7 +36,7 @@ public class InitailMenu extends JPanel {
         JLabel endGameLabel = createLabel(
             "Sair",
             gameEngine.getWidth(),
-            gameEngine.getHeigth(),
+            gameEngine.getHeight(),
             backgroundLabel.getIcon().getIconHeight()
         );
         gameEngine.getWindow().add(endGameLabel);
@@ -44,7 +44,7 @@ public class InitailMenu extends JPanel {
         JLabel selectMenuItem = new JLabel();
         selectMenuItem.setIcon(gameEngine.getLoader().getSelectMenuItem());
         selectMenuItem.setBounds((
-            gameEngine.getWidth() - selectMenuItem.getPreferredSize().width) / 2 - 200, (gameEngine.getHeigth() + backgroundLabel.getIcon().getIconHeight()) / 2 -35, selectMenuItem.getPreferredSize().width, selectMenuItem.getPreferredSize().height
+            gameEngine.getWidth() - selectMenuItem.getPreferredSize().width) / 2 - 200, (gameEngine.getHeight() + backgroundLabel.getIcon().getIconHeight()) / 2 -35, selectMenuItem.getPreferredSize().width, selectMenuItem.getPreferredSize().height
         );
 
         gameEngine.getWindow().add(selectMenuItem);
