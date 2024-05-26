@@ -1,7 +1,6 @@
 package game;
 
 import javax.swing.JFrame;
-
 import view.Loader;
 
 public class GameEngine {
@@ -21,8 +20,7 @@ public class GameEngine {
         window.setLocationRelativeTo(null);
         window.setResizable(false);
         
-        InitailMenu mainMenu = new InitailMenu(this);
-        window.setContentPane(mainMenu);
+        showInitialMenu();
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
@@ -42,5 +40,17 @@ public class GameEngine {
 
     public Loader getLoader(){
         return this.assetLoader;
+    }
+
+    public void showInitialMenu(){
+        InitailMenu mainMenu = new InitailMenu(this);
+        window.setContentPane(mainMenu);
+        window.revalidate();
+    }
+
+    public void showLeve1(){
+        Level1 levelOne = new Level1();
+        window.setContentPane(levelOne); 
+        window.revalidate();
     }
 }

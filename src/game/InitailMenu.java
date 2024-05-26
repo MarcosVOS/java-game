@@ -90,6 +90,8 @@ public class InitailMenu extends JPanel implements KeyListener {
             case KeyEvent.VK_ENTER:
                 if (itemSelectedOnTheYAxis == 560) {
                     gameEngine.getWindow().dispose();
+                }else if(itemSelectedOnTheYAxis == 520){
+                    gameEngine.showLeve1();
                 }   
                 break;
             default:
