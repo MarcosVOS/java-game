@@ -40,6 +40,14 @@ public class InitailMenu extends JPanel {
             backgroundLabel.getIcon().getIconHeight()
         );
         gameEngine.getWindow().add(endGameLabel);
+
+        JLabel selectMenuItem = new JLabel();
+        selectMenuItem.setIcon(gameEngine.getLoader().getSelectMenuItem());
+        selectMenuItem.setBounds((
+            gameEngine.getWidth() - selectMenuItem.getPreferredSize().width) / 2 - 200, (gameEngine.getHeigth() + backgroundLabel.getIcon().getIconHeight()) / 2 -35, selectMenuItem.getPreferredSize().width, selectMenuItem.getPreferredSize().height
+        );
+
+        gameEngine.getWindow().add(selectMenuItem);
         
     }
 
