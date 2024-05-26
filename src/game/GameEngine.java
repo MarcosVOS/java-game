@@ -25,19 +25,25 @@ public class GameEngine {
         window.setResizable(false);
         window.setBackground(Color.BLACK);
         
-
-        //===Align vertically at the top and center horizontally
-        // JLabel backgroundLabel = new JLabel(assetLoader.getMenuBackgroundImage());
-        // backgroundLabel.setHorizontalAlignment(JLabel.CENTER); 
-        // backgroundLabel.setVerticalAlignment(JLabel.TOP); 
-        // window.setContentPane(backgroundLabel);
-        
-        //===Centers on screen
-        JLabel backgroundLabel = new JLabel(assetLoader.getMenuBackgroundImage());
-        backgroundLabel.setBounds(0, 0, WIDTH, HEIGHT);
-        window.setContentPane(backgroundLabel);
+        InitailMenu mainMenu = new InitailMenu(this);
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
+    }
+
+    public int getWidth(){
+        return this.WIDTH;
+    } 
+
+    public int getHeigth(){
+        return this.HEIGHT;
+    }
+    
+    public JFrame getWindow(){
+        return this.window;
+    }
+
+    public Loader getLoader(){
+        return this.assetLoader;
     }
 }
