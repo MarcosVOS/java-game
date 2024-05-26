@@ -78,7 +78,7 @@ public class InitailMenu extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent k){
-        
+
         int pressedKey = k.getKeyCode();
         switch(pressedKey){
             case KeyEvent.VK_UP:
@@ -86,6 +86,11 @@ public class InitailMenu extends JPanel implements KeyListener {
                 break;
             case KeyEvent.VK_DOWN:
                 itemSelectedOnTheYAxis = 560;
+                break;
+            case KeyEvent.VK_ENTER:
+                if (itemSelectedOnTheYAxis == 560) {
+                    gameEngine.getWindow().dispose();
+                }   
                 break;
             default:
                 break;
