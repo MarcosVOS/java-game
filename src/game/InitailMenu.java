@@ -44,8 +44,8 @@ public class InitailMenu extends JPanel implements KeyListener {
         int marginBottom = text == "Sair" ? 40 : 0;
         
         JLabel label = new JLabel(text);
-        label.setForeground(Color.WHITE);
-        label.setFont(new Font("Arial", Font.BOLD, 20));
+        label.setForeground(Color.blue);
+        label.setFont(gameEngine.getLoader().getFont());
         int labelEndWidth = label.getPreferredSize().width;
         int labelEndHeight = label.getPreferredSize().height;
         label.setBounds((width - labelEndWidth) / 2, (height / 2) + marginBottom, labelEndWidth, labelEndHeight);

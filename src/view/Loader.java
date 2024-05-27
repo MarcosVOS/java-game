@@ -3,11 +3,9 @@ package view;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import java.io.File;
-import java.io.IOException;
-
+import java.awt.Font;
 public class Loader {
     
     private ImageIcon windowIcon;
@@ -16,19 +14,31 @@ public class Loader {
     private File menuSound;
     private File selectMenuItemSound;
     private Clip clip; 
+    private Font fonts;
 
     public Loader(){
+        try {
+            //images
+            this.windowIcon = new ImageIcon(getClass().getResource("/assets/windowIcon.png"));
+            this.menuBackgroundImage = new ImageIcon(getClass().getResource("/assets/homeScreenLogo.png"));
+            this.selectMenuItem = new ImageIcon(getClass().getResource("/assets/selectMenuItem.jpeg"));
+            
+            
+            //Sounds
+            this.menuSound = new File(getClass().getResource("/sound/into.wav").getFile());
+            this.selectMenuItemSound = new File(getClass().getResource("/sound/shoot.wav").getFile());
 
-        //images
-        this.windowIcon = new ImageIcon(getClass().getResource("/assets/windowIcon.png"));
-        this.menuBackgroundImage = new ImageIcon(getClass().getResource("/assets/homeScreenLogo.png"));
-        this.selectMenuItem = new ImageIcon(getClass().getResource("/assets/selectMenuItem.jpeg"));
-        
-        
-        //Sounds
-        this.menuSound = new File(getClass().getResource("/sound/into.wav").getFile());
-        this.selectMenuItemSound = new File(getClass().getResource("/sound/shoot.wav").getFile());
+            //Font
+            // this.fonts = Font.createFont(Font.TRUETYPE_FONT, new File(getClass().getResource("/fonts/megaman.ttf").getFile())).deriveFont(28f);
+            this.fonts = Font.createFont(
+                Font.TRUETYPE_FONT,
+                getClass().getResourceAsStream("/fonts/optionTwo.ttf")
+            ).deriveFont(18f);
 
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Unable to load textures");
+        }
     }
 
     public void playSound(File sound) {
@@ -68,5 +78,9 @@ public class Loader {
 
     public File getSelectMenuItemSound(){
         return this.selectMenuItemSound;
+    }
+
+    public Font getFont(){
+        return this.fonts;
     }
 }
