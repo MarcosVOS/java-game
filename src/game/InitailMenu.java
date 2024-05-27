@@ -12,6 +12,8 @@ import java.awt.Image;
 public class InitailMenu extends JPanel implements KeyListener {
     private GameEngine gameEngine;
     private int itemSelectedOnTheYAxis = 520;
+    private JLabel startGame;
+    private JLabel endGame;
 
     public InitailMenu(GameEngine gameEngine){
         this.gameEngine = gameEngine;
@@ -19,37 +21,50 @@ public class InitailMenu extends JPanel implements KeyListener {
         setLayout(null);
         setBackground(Color.BLACK);
 
-        JLabel startGameLabel = createLabel(
+        startGame = createLabel(
             "Começar",
             gameEngine.getWidth(),
             gameEngine.getHeight()+400
         );
-        add(startGameLabel);
+        add(startGame);
 
-        JLabel endGameLabel = createLabel(
+        endGame = createLabel(
             "Sair",
             gameEngine.getWidth(),
             gameEngine.getHeight()+400
         );
-        add(endGameLabel);
+        add(endGame);
 
         gameEngine.getWindow().addKeyListener(this);
         setFocusTraversalKeysEnabled(false);
 
         gameEngine.getLoader().playSound(gameEngine.getLoader().getMenuSound());
+
+        updateLabelColor();
         
     }
 
     private JLabel createLabel(String text, int width , int height){
-        int marginBottom = text == "Sair" ? 40 : 0;
+        Color labelColor = new Color(82,231,255);
+
+        int marginBottom = text.equals("Sair") ? 40 : 0;
         
         JLabel label = new JLabel(text);
-        label.setForeground(Color.blue);
+        label.setForeground(labelColor);
         label.setFont(gameEngine.getLoader().getFont());
         int labelEndWidth = label.getPreferredSize().width;
         int labelEndHeight = label.getPreferredSize().height;
         label.setBounds((width - labelEndWidth) / 2, (height / 2) + marginBottom, labelEndWidth, labelEndHeight);
         return label;
+    }
+
+    public void updateLabelColor() {
+        Color defaultColor = new Color(82, 231, 255);
+        Color selectedColor = new Color(247, 140, 0);
+
+        startGame.setForeground(itemSelectedOnTheYAxis == 520 ? selectedColor : defaultColor);
+        endGame.setForeground(itemSelectedOnTheYAxis == 560 ? selectedColor : defaultColor);
+        return;
     }
 
     @Override
@@ -67,8 +82,6 @@ public class InitailMenu extends JPanel implements KeyListener {
         int y = (height - drawHeight) / 2;
 
         g.drawImage(backgroundImage,x,y,drawWidth,drawHeight,this);
-
-
 
         g.drawImage(
             gameEngine.getLoader().getSelectMenuItem().getImage(),
@@ -100,6 +113,7 @@ public class InitailMenu extends JPanel implements KeyListener {
             default:
                 break;
         }
+        updateLabelColor();
         repaint();
     }
 
