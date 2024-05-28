@@ -103,6 +103,7 @@ public class InitailMenu extends JPanel implements KeyListener {
                 itemSelectedOnTheYAxis = 560;
                 break;
             case KeyEvent.VK_ENTER:
+                gameEngine.getLoader().stopSound();
                 gameEngine.getLoader().playSound(gameEngine.getLoader().getSelectMenuItemSound());
                 if (itemSelectedOnTheYAxis == 560) {
                     gameEngine.getWindow().dispose();
