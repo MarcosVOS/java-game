@@ -9,13 +9,13 @@ import java.awt.event.KeyEvent;
 import java.awt.Graphics;
 import java.awt.Image;
 
-public class InitailMenu extends JPanel implements KeyListener {
+public class HomeMenu extends JPanel implements KeyListener {
     private GameEngine gameEngine;
     private int itemSelectedOnTheYAxis = 520;
     private JLabel startGame;
     private JLabel endGame;
 
-    public InitailMenu(GameEngine gameEngine){
+    public HomeMenu(GameEngine gameEngine){
         this.gameEngine = gameEngine;
         
         setLayout(null);

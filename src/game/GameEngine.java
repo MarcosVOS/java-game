@@ -43,7 +43,7 @@ public class GameEngine {
     }
 
     public void showInitialMenu(){
-        InitailMenu mainMenu = new InitailMenu(this);
+        HomeMenu mainMenu = new HomeMenu(this);
         window.setContentPane(mainMenu);
         window.revalidate();
     }
