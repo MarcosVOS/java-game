@@ -3,8 +3,8 @@ package game;
 import javax.swing.JPanel;
 import java.awt.Color;
 
-public class Level1 extends JPanel{
-    public Level1(){
+public class LevelOne extends JPanel{
+    public LevelOne(){
         setBackground(Color.BLUE);
     }
 }

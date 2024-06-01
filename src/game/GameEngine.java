@@ -7,7 +7,7 @@ public class GameEngine {
     private final int WIDTH = 1280;
     private final int HEIGHT = 720; 
     private final String GAME_NAME = "Megaman X1";
-    
+
     private JFrame window;
     private Loader assetLoader;
 
@@ -50,7 +50,7 @@ public class GameEngine {
     }
 
     public void showLeve1(){
-        Level1 levelOne = new Level1();
+        LevelOne levelOne = new LevelOne();
         window.setContentPane(levelOne); 
         window.revalidate();
     }
