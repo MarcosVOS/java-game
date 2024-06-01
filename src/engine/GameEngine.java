@@ -1,7 +1,7 @@
-package game;
+package engine;
 
 import javax.swing.JFrame;
-import view.Loader;
+import util.Loader;
 
 public class GameEngine {
     private final int WIDTH = 1280;

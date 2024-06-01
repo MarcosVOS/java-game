@@ -1,4 +1,4 @@
-package view;
+package util;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -24,9 +24,9 @@ public class Loader {
 
     private void loadImages(){
         try{    
-            this.windowIcon = new ImageIcon(getClass().getResource("/res/homeMenu/windowIcon.png"));
-            this.menuBackgroundImage = new ImageIcon(getClass().getResource("/res/homeMenu/homeScreenLogo.png"));
-            this.selectMenuItem = new ImageIcon(getClass().getResource("/res/homeMenu/selectMenuItem.jpeg"));
+            this.windowIcon = new ImageIcon(getClass().getResource("/resources/homeMenu/windowIcon.png"));
+            this.menuBackgroundImage = new ImageIcon(getClass().getResource("/resources/homeMenu/homeScreenLogo.png"));
+            this.selectMenuItem = new ImageIcon(getClass().getResource("/resources/homeMenu/selectMenuItem.jpeg"));
         }catch(Exception e){
             e.printStackTrace();
             System.out.println("Unable to load images");
@@ -35,8 +35,8 @@ public class Loader {
 
     private void loadSounds(){
         try{
-            this.menuSound = new File(getClass().getResource("/res/sound/into.wav").getFile());
-            this.selectMenuItemSound = new File(getClass().getResource("/res/sound/shoot.wav").getFile());
+            this.menuSound = new File(getClass().getResource("/resources/sound/into.wav").getFile());
+            this.selectMenuItemSound = new File(getClass().getResource("/resources/sound/shoot.wav").getFile());
         }catch(Exception e){
             e.printStackTrace();
             System.out.println("Unable to load sounds");
@@ -47,7 +47,7 @@ public class Loader {
         try{
             this.fonts = Font.createFont(
                 Font.TRUETYPE_FONT,
-                getClass().getResourceAsStream("/res/fonts/optionTwo.ttf")
+                getClass().getResourceAsStream("/resources/fonts/optionTwo.ttf")
             ).deriveFont(18f);
         }catch(Exception e){
             e.printStackTrace();
