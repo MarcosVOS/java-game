@@ -9,14 +9,20 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 public class HomeMenu extends JPanel implements KeyListener {
+    private final int START_Y = 520; 
+    private final int EXIT_Y = 560; 
+
     private GameEngine gameEngine;
-    private int itemSelectedOnTheYAxis = 520;
+    private int itemSelectedOnTheYAxis = START_Y;
     private JLabel startGame;
     private JLabel endGame;
 
     public HomeMenu(GameEngine gameEngine){
         this.gameEngine = gameEngine;
-        
+        initializeMenu();
+    }
+
+    public void initializeMenu(){
         setLayout(null);
         setBackground(Color.BLACK);
 
@@ -38,9 +44,7 @@ public class HomeMenu extends JPanel implements KeyListener {
         setFocusTraversalKeysEnabled(false);
 
         gameEngine.getLoader().playSound(gameEngine.getLoader().getMenuSound());
-
         updateLabelColor();
-        
     }
 
     private JLabel createLabel(String text, int width , int height){
@@ -61,8 +65,8 @@ public class HomeMenu extends JPanel implements KeyListener {
         Color defaultColor = new Color(82, 231, 255);
         Color selectedColor = new Color(247, 140, 0);
 
-        startGame.setForeground(itemSelectedOnTheYAxis == 520 ? selectedColor : defaultColor);
-        endGame.setForeground(itemSelectedOnTheYAxis == 560 ? selectedColor : defaultColor);
+        startGame.setForeground(itemSelectedOnTheYAxis == START_Y ? selectedColor : defaultColor);
+        endGame.setForeground(itemSelectedOnTheYAxis == EXIT_Y ? selectedColor : defaultColor);
         return;
     }
 
@@ -81,7 +85,6 @@ public class HomeMenu extends JPanel implements KeyListener {
         int y = (height - drawHeight) / 2;
 
         g.drawImage(backgroundImage,x,y,drawWidth,drawHeight,this);
-
         g.drawImage(
             gameEngine.getLoader().getSelectMenuItem().getImage(),
             480,
@@ -92,29 +95,32 @@ public class HomeMenu extends JPanel implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent k){
-
         int pressedKey = k.getKeyCode();
         switch(pressedKey){
             case KeyEvent.VK_UP:
-                itemSelectedOnTheYAxis = 520;
+                itemSelectedOnTheYAxis = START_Y;
                 break;
             case KeyEvent.VK_DOWN:
-                itemSelectedOnTheYAxis = 560;
+                itemSelectedOnTheYAxis = EXIT_Y;
                 break;
             case KeyEvent.VK_ENTER:
-                gameEngine.getLoader().stopSound();
-                gameEngine.getLoader().playSound(gameEngine.getLoader().getSelectMenuItemSound());
-                if (itemSelectedOnTheYAxis == 560) {
-                    gameEngine.getWindow().dispose();
-                }else if(itemSelectedOnTheYAxis == 520){
-                    gameEngine.showLeve1();
-                }   
+                handleEnterKey();
                 break;
             default:
                 break;
         }
         updateLabelColor();
         repaint();
+    }
+
+    private void handleEnterKey(){
+        gameEngine.getLoader().stopSound();
+        gameEngine.getLoader().playSound(gameEngine.getLoader().getSelectMenuItemSound());
+        if (itemSelectedOnTheYAxis == EXIT_Y) {
+            gameEngine.getWindow().dispose();
+        }else if(itemSelectedOnTheYAxis == START_Y){
+            gameEngine.showLeve1();
+        }   
     }
 
     @Override
