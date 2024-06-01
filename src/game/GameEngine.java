@@ -6,7 +6,7 @@ import view.Loader;
 public class GameEngine {
     private final int WIDTH = 1280;
     private final int HEIGHT = 720; 
-    private final String gameName = "Megaman X1";
+    private final String GAME_NAME = "Megaman X1";
     private JFrame window;
     private Loader assetLoader;
 
@@ -14,7 +14,7 @@ public class GameEngine {
 
         assetLoader = new Loader();
 
-        window = new JFrame(gameName);
+        window = new JFrame(GAME_NAME);
         window.setIconImage(assetLoader.getWindowIcon().getImage());
         window.setSize(WIDTH,HEIGHT);
         window.setLocationRelativeTo(null);
