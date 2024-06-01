@@ -7,21 +7,22 @@ public class GameEngine {
     private final int WIDTH = 1280;
     private final int HEIGHT = 720; 
     private final String GAME_NAME = "Megaman X1";
+    
     private JFrame window;
     private Loader assetLoader;
 
     public GameEngine(){
-
         assetLoader = new Loader();
+        setupWindow();
+        showInitialMenu();
+    }
 
+    public void setupWindow(){
         window = new JFrame(GAME_NAME);
         window.setIconImage(assetLoader.getWindowIcon().getImage());
         window.setSize(WIDTH,HEIGHT);
         window.setLocationRelativeTo(null);
         window.setResizable(false);
-        
-        showInitialMenu();
-
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
     }
