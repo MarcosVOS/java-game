@@ -19,20 +19,20 @@ public class Loader {
     public Loader(){
         try {
             //images
-            this.windowIcon = new ImageIcon(getClass().getResource("/assets/windowIcon.png"));
-            this.menuBackgroundImage = new ImageIcon(getClass().getResource("/assets/homeScreenLogo.png"));
-            this.selectMenuItem = new ImageIcon(getClass().getResource("/assets/selectMenuItem.jpeg"));
+            this.windowIcon = new ImageIcon(getClass().getResource("/res/homeMenu/windowIcon.png"));
+            this.menuBackgroundImage = new ImageIcon(getClass().getResource("/res/homeMenu/homeScreenLogo.png"));
+            this.selectMenuItem = new ImageIcon(getClass().getResource("/res/homeMenu/selectMenuItem.jpeg"));
             
             
             //Sounds
-            this.menuSound = new File(getClass().getResource("/sound/into.wav").getFile());
-            this.selectMenuItemSound = new File(getClass().getResource("/sound/shoot.wav").getFile());
+            this.menuSound = new File(getClass().getResource("/res/sound/into.wav").getFile());
+            this.selectMenuItemSound = new File(getClass().getResource("/res/sound/shoot.wav").getFile());
 
             //Font
             // this.fonts = Font.createFont(Font.TRUETYPE_FONT, new File(getClass().getResource("/fonts/megaman.ttf").getFile())).deriveFont(28f);
             this.fonts = Font.createFont(
                 Font.TRUETYPE_FONT,
-                getClass().getResourceAsStream("/fonts/optionTwo.ttf")
+                getClass().getResourceAsStream("/res/fonts/optionTwo.ttf")
             ).deriveFont(18f);
 
         } catch (Exception e) {
