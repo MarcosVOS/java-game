@@ -119,7 +119,7 @@ public class HomeMenu extends JPanel implements KeyListener {
         if (itemSelectedOnTheYAxis == EXIT_Y) {
             gameEngine.getWindow().dispose();
         }else if(itemSelectedOnTheYAxis == START_Y){
-            gameEngine.showLeve1();
+            gameEngine.setStage(GameEngine.CurrentStage.LEVEL_ONE);
         }   
     }
 

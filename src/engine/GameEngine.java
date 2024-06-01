@@ -11,10 +11,28 @@ public class GameEngine {
     private JFrame window;
     private Loader assetLoader;
 
+    public enum CurrentStage {
+        MAIN_MENU,
+        LEVEL_ONE
+    }
+
     public GameEngine(){
         assetLoader = new Loader();
         setupWindow();
-        showInitialMenu();
+        setStage(CurrentStage.MAIN_MENU);
+    }
+
+    public void setStage(CurrentStage stage){
+        switch (stage) {
+            case MAIN_MENU:
+                showInitialMenu();
+                break;
+            case LEVEL_ONE:
+                showLeveOne();
+                break;
+            default:
+                break;
+        }
     }
 
     public void setupWindow(){
@@ -49,7 +67,7 @@ public class GameEngine {
         window.revalidate();
     }
 
-    public void showLeve1(){
+    public void showLeveOne(){
         LevelOne levelOne = new LevelOne();
         window.setContentPane(levelOne); 
         window.revalidate();
