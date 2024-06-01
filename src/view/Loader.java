@@ -17,27 +17,41 @@ public class Loader {
     private Font fonts;
 
     public Loader(){
-        try {
-            //images
+        loadImages(); 
+        loadSounds();
+        loadFont();
+    }
+
+    private void loadImages(){
+        try{    
             this.windowIcon = new ImageIcon(getClass().getResource("/res/homeMenu/windowIcon.png"));
             this.menuBackgroundImage = new ImageIcon(getClass().getResource("/res/homeMenu/homeScreenLogo.png"));
             this.selectMenuItem = new ImageIcon(getClass().getResource("/res/homeMenu/selectMenuItem.jpeg"));
-            
-            
-            //Sounds
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Unable to load images");
+        }
+    }
+
+    private void loadSounds(){
+        try{
             this.menuSound = new File(getClass().getResource("/res/sound/into.wav").getFile());
             this.selectMenuItemSound = new File(getClass().getResource("/res/sound/shoot.wav").getFile());
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Unable to load sounds");
+        }
+    }
 
-            //Font
-            // this.fonts = Font.createFont(Font.TRUETYPE_FONT, new File(getClass().getResource("/fonts/megaman.ttf").getFile())).deriveFont(28f);
+    private void loadFont(){
+        try{
             this.fonts = Font.createFont(
                 Font.TRUETYPE_FONT,
                 getClass().getResourceAsStream("/res/fonts/optionTwo.ttf")
             ).deriveFont(18f);
-
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("Unable to load textures");
+        }catch(Exception e){
+            e.printStackTrace();
+            System.out.println("Unable to load font");
         }
     }
 
