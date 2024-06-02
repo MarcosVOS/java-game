@@ -75,8 +75,22 @@ public class Player extends Character {
     }
 
     private BufferedImage[] formatRunningSprites(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
+
+        BufferedImage[] runningSprites = new BufferedImage[11];
+        runningSprites[0] = super.getSpriteSheet().getSubimage(4,66,30,34);
+        runningSprites[1] = super.getSpriteSheet().getSubimage(49,66,20,34);
+        runningSprites[2] = super.getSpriteSheet().getSubimage(74,66,23,35);
+        runningSprites[3] = super.getSpriteSheet().getSubimage(104,67,32,34);
+        runningSprites[4] = super.getSpriteSheet().getSubimage(144,67,34,33);
+        runningSprites[5] = super.getSpriteSheet().getSubimage(189,67,26,33);
+        runningSprites[6] = super.getSpriteSheet().getSubimage(221,66,22,34);
+        runningSprites[7] = super.getSpriteSheet().getSubimage(247,66,25,35);
+        runningSprites[8] = super.getSpriteSheet().getSubimage(279,66,30,34);
+        runningSprites[9] = super.getSpriteSheet().getSubimage(317,67,34,33);
+        runningSprites[10] = super.getSpriteSheet().getSubimage(358,67,29,33);
+
+
+        return runningSprites;
     }
     private BufferedImage[] formatJumpSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
@@ -105,5 +119,9 @@ public class Player extends Character {
 
     public BufferedImage getShootingSprites(int frame){
         return this.shootingSprites[frame];
+    }
+
+    public BufferedImage getRunningSprites(int frame){
+        return this.runningSprites[frame];
     }
 }
