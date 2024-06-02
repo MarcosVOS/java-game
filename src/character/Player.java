@@ -54,10 +54,16 @@ public class Player extends Character {
     }
 
     private BufferedImage[] formatIdleSprites(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
+        BufferedImage[] idleSprites = new BufferedImage[4];
+
+        idleSprites[0] = super.getSpriteSheet().getSubimage(225,28,30,34);
+        idleSprites[1] = super.getSpriteSheet().getSubimage(260,28,30,34);
+        idleSprites[2] = super.getSpriteSheet().getSubimage(294,28,30,34);
+        idleSprites[3] = super.getSpriteSheet().getSubimage(329,28,30,34);
+
+        return idleSprites;
     }
-    
+
     private BufferedImage[] formatRunningSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
@@ -87,4 +93,7 @@ public class Player extends Character {
         return this.introductionSprites[frame];
     }
 
+    public BufferedImage getIdleSprites(int frame){
+        return this.idleSprites[frame];
+    }
 }
