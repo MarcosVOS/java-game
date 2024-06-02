@@ -75,7 +75,6 @@ public class Player extends Character {
     }
 
     private BufferedImage[] formatRunningSprites(){
-
         BufferedImage[] runningSprites = new BufferedImage[11];
         runningSprites[0] = super.getSpriteSheet().getSubimage(4,66,30,34);
         runningSprites[1] = super.getSpriteSheet().getSubimage(49,66,20,34);
@@ -105,7 +104,6 @@ public class Player extends Character {
         return jumpSprites;
     }
     private BufferedImage[] formatCelebrationSprite(){
-
         BufferedImage[] celebrationSprite = new BufferedImage[5];
 
         celebrationSprite[0] = super.getSpriteSheet().getSubimage(220, 255, 28, 45);
@@ -114,13 +112,22 @@ public class Player extends Character {
         celebrationSprite[3] = super.getSpriteSheet().getSubimage(334, 255, 29, 45);
         celebrationSprite[4] = super.getSpriteSheet().getSubimage(372, 255, 31, 45);
 
-
         return celebrationSprite;
     }
     private BufferedImage[] formatDyingSprites(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
+        BufferedImage[] dyingSprites = new BufferedImage[7];
+
+        dyingSprites[0] = super.getSpriteSheet().getSubimage(326, 329, 26, 36);
+        dyingSprites[1] = super.getSpriteSheet().getSubimage(356, 329, 26, 36);
+        dyingSprites[2] = super.getSpriteSheet().getSubimage(395, 343, 6, 6);
+        dyingSprites[3] = super.getSpriteSheet().getSubimage(405, 342, 8, 8);
+        dyingSprites[4] = super.getSpriteSheet().getSubimage(416, 341, 9, 9);
+        dyingSprites[5] = super.getSpriteSheet().getSubimage(428, 340, 11, 11);
+        dyingSprites[6] = super.getSpriteSheet().getSubimage(442, 338, 15, 15);
+
+        return dyingSprites;       
     }
+    
     private BufferedImage[] formatTakingDamageSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
@@ -148,5 +155,9 @@ public class Player extends Character {
     
     public BufferedImage getCelebrationSprite(int frame){
         return this.celebrationSprite[frame];
+    }
+
+    public BufferedImage getDyingSprites(int frame){
+        return this.dyingSprites[frame];
     }
 }
