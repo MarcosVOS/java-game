@@ -1,16 +1,20 @@
 package util;
 
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import java.io.File;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 public class Loader {
     
     private ImageIcon windowIcon;
     private ImageIcon menuBackgroundImage; 
     private ImageIcon selectMenuItem;
+    private BufferedImage playerSprites;
+
     private File menuSound;
     private File selectMenuItemSound;
     private Clip clip; 
@@ -27,6 +31,7 @@ public class Loader {
             this.windowIcon = new ImageIcon(getClass().getResource("/resources/homeMenu/windowIcon.png"));
             this.menuBackgroundImage = new ImageIcon(getClass().getResource("/resources/homeMenu/homeScreenLogo.png"));
             this.selectMenuItem = new ImageIcon(getClass().getResource("/resources/homeMenu/selectMenuItem.jpeg"));
+            this.playerSprites =  ImageIO.read(getClass().getResource("/resources/sprites/characters/player/megaman-sprite.png"));
         }catch(Exception e){
             e.printStackTrace();
             System.out.println("Unable to load images");
@@ -96,5 +101,9 @@ public class Loader {
 
     public Font getFont(){
         return this.fonts;
+    }
+
+    public BufferedImage getPlayerSprite(){
+        return this.playerSprites;
     }
 }

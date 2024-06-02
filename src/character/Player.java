@@ -40,13 +40,24 @@ public class Player extends Character {
     }
 
     private BufferedImage[] formatIntroductionSprites(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
+        BufferedImage[] introductionSprites = new BufferedImage[7];
+        
+        introductionSprites[0] = super.getSpriteSheet().getSubimage(4, 14, 8, 48);
+        introductionSprites[1] = super.getSpriteSheet().getSubimage(18, 33, 22, 29);
+        introductionSprites[2] = super.getSpriteSheet().getSubimage(45, 20, 30, 42);
+        introductionSprites[3] = super.getSpriteSheet().getSubimage(83, 23, 30, 39);
+        introductionSprites[4] = super.getSpriteSheet().getSubimage(119, 26, 30, 36);
+        introductionSprites[5] = super.getSpriteSheet().getSubimage(155, 28, 30, 34);
+        introductionSprites[6] = super.getSpriteSheet().getSubimage(190, 30, 30, 32);
+
+        return introductionSprites;
     }
+
     private BufferedImage[] formatIdleSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
     }
+    
     private BufferedImage[] formatRunningSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
@@ -70,6 +81,10 @@ public class Player extends Character {
     private BufferedImage[] formatShootingSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
+    }
+
+    public BufferedImage getIntroductionSprites(int frame){
+        return this.introductionSprites[frame];
     }
 
 }
