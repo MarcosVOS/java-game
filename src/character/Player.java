@@ -13,12 +13,13 @@ public class Player extends Character {
     //Tomando dano
     private BufferedImage[] introductionSprites;
     private BufferedImage[] idleSprites;
+    private BufferedImage[] shootingSprites;
     private BufferedImage[] runningSprites;
     private BufferedImage[] jumpSprites;
     private BufferedImage[] celebrationSprite;
     private BufferedImage[] dyingSprites;
     private BufferedImage[] takingDamageSprites;
-    private BufferedImage[] shootingSprites;
+    
 
 
 
@@ -64,6 +65,15 @@ public class Player extends Character {
         return idleSprites;
     }
 
+    private BufferedImage[] formatShootingSprites(){
+        BufferedImage[] shootingSprites = new BufferedImage[2];
+
+        shootingSprites[0] = super.getSpriteSheet().getSubimage(364,28,30,34);
+        shootingSprites[1] = super.getSpriteSheet().getSubimage(401,28,29,34);
+
+        return shootingSprites;
+    }
+
     private BufferedImage[] formatRunningSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
@@ -84,10 +94,6 @@ public class Player extends Character {
         BufferedImage[] tmp = new BufferedImage[0];
         return tmp;
     }
-    private BufferedImage[] formatShootingSprites(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
-    }
 
     public BufferedImage getIntroductionSprites(int frame){
         return this.introductionSprites[frame];
@@ -95,5 +101,9 @@ public class Player extends Character {
 
     public BufferedImage getIdleSprites(int frame){
         return this.idleSprites[frame];
+    }
+
+    public BufferedImage getShootingSprites(int frame){
+        return this.shootingSprites[frame];
     }
 }
