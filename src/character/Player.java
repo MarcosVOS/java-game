@@ -105,8 +105,17 @@ public class Player extends Character {
         return jumpSprites;
     }
     private BufferedImage[] formatCelebrationSprite(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
+
+        BufferedImage[] celebrationSprite = new BufferedImage[5];
+
+        celebrationSprite[0] = super.getSpriteSheet().getSubimage(220, 255, 28, 45);
+        celebrationSprite[1] = super.getSpriteSheet().getSubimage(258, 255, 29, 45);
+        celebrationSprite[2] = super.getSpriteSheet().getSubimage(296, 252, 34, 48);
+        celebrationSprite[3] = super.getSpriteSheet().getSubimage(334, 255, 29, 45);
+        celebrationSprite[4] = super.getSpriteSheet().getSubimage(372, 255, 31, 45);
+
+
+        return celebrationSprite;
     }
     private BufferedImage[] formatDyingSprites(){
         BufferedImage[] tmp = new BufferedImage[0];
@@ -135,5 +144,9 @@ public class Player extends Character {
 
     public BufferedImage getJumpSprites(int frame){
         return this.jumpSprites[frame];
+    }
+    
+    public BufferedImage getCelebrationSprite(int frame){
+        return this.celebrationSprite[frame];
     }
 }
