@@ -68,7 +68,7 @@ public class GameEngine {
     }
 
     public void showLeveOne(){
-        LevelOne levelOne = new LevelOne();
+        LevelOne levelOne = new LevelOne(this);
         window.setContentPane(levelOne); 
         window.revalidate();
     }
