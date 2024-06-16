@@ -42,7 +42,7 @@ public class LevelOne extends JPanel implements ActionListener {
     private void update() {
         // Coloque aqui a lógica de atualização do jogo
         fpsCounter+=1;
-        if (fpsCounter > 11){
+        if (fpsCounter > 10){
             fpsCounter = 0;
         } 
     }
@@ -51,7 +51,7 @@ public class LevelOne extends JPanel implements ActionListener {
     protected void paintComponent(Graphics g) {
         int number = fpsCounter;
 
-        BufferedImage currentSprite = player.getRunningSprites(number);
+        BufferedImage currentSprite = player.getTakingDamageSprites(number);
 
         super.paintComponent(g);
         g.drawImage(

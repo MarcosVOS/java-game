@@ -128,16 +128,16 @@ public class Player extends Character {
     private BufferedImage[] formatTakingDamageSprites(){
         BufferedImage[] takingDamageSprites = new BufferedImage[10];
 
-        // takingDamageSprites[0] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[1] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[2] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[3] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[4] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[5] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[6] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[7] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[8] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
-        // takingDamageSprites[9] = super.getSpriteSheet().getSubimage(0, 0, 0, 0);
+        takingDamageSprites[0] = super.getSpriteSheet().getSubimage(477, 12, 26, 36);
+        takingDamageSprites[1] = super.getSpriteSheet().getSubimage(508, 14, 29, 34);
+        takingDamageSprites[2] = super.getSpriteSheet().getSubimage(543, 14, 29, 34);
+        takingDamageSprites[3] = super.getSpriteSheet().getSubimage(580, 4, 32, 48);
+        takingDamageSprites[4] = super.getSpriteSheet().getSubimage(619, 14, 29, 34);
+        takingDamageSprites[5] = super.getSpriteSheet().getSubimage(656, 4, 32, 48);
+        takingDamageSprites[6] = super.getSpriteSheet().getSubimage(694, 14, 29, 34);
+        takingDamageSprites[7] = super.getSpriteSheet().getSubimage(729, 4, 32, 48);
+        takingDamageSprites[8] = super.getSpriteSheet().getSubimage(766, 14, 34, 34);
+        takingDamageSprites[9] = super.getSpriteSheet().getSubimage(805, 13, 29, 35);
 
         return takingDamageSprites;
     }
