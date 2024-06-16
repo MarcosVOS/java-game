@@ -8,9 +8,6 @@ public class Player extends Character {
     //Pulando Atirando
     //Escalando 
     //Escalando Atirando
-    //Missão Concluida
-    //Morrendo
-    //Tomando dano
     private BufferedImage[] introductionSprites;
     private BufferedImage[] idleSprites;
     private BufferedImage[] shootingSprites;
@@ -127,10 +124,22 @@ public class Player extends Character {
 
         return dyingSprites;       
     }
-    
+
     private BufferedImage[] formatTakingDamageSprites(){
-        BufferedImage[] tmp = new BufferedImage[0];
-        return tmp;
+        BufferedImage[] takingDamageSprites = new BufferedImage[10];
+
+        takingDamageSprites[0] = super.getSpriteSheet().getSubimage(477, 12, 26, 36);
+        takingDamageSprites[1] = super.getSpriteSheet().getSubimage(508, 14, 29, 34);
+        takingDamageSprites[2] = super.getSpriteSheet().getSubimage(543, 14, 29, 34);
+        takingDamageSprites[3] = super.getSpriteSheet().getSubimage(580, 4, 32, 48);
+        takingDamageSprites[4] = super.getSpriteSheet().getSubimage(619, 14, 29, 34);
+        takingDamageSprites[5] = super.getSpriteSheet().getSubimage(656, 4, 32, 48);
+        takingDamageSprites[6] = super.getSpriteSheet().getSubimage(694, 14, 29, 34);
+        takingDamageSprites[7] = super.getSpriteSheet().getSubimage(729, 4, 32, 48);
+        takingDamageSprites[8] = super.getSpriteSheet().getSubimage(766, 14, 34, 34);
+        takingDamageSprites[9] = super.getSpriteSheet().getSubimage(805, 13, 29, 35);
+
+        return takingDamageSprites;
     }
 
     public BufferedImage getIntroductionSprites(int frame){
@@ -159,5 +168,9 @@ public class Player extends Character {
 
     public BufferedImage getDyingSprites(int frame){
         return this.dyingSprites[frame];
+    }
+
+    public BufferedImage getTakingDamageSprites(int frame){
+        return this.takingDamageSprites[frame];
     }
 }
